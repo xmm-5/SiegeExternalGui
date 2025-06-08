@@ -2,7 +2,7 @@
 
 #include <thread>
 
-int __stdcall WWipMain(
+int __stdcall wWinMain(
 	HINSTANCE instance,
 	HINSTANCE previousInstance,
 	PWSTR arguments,
