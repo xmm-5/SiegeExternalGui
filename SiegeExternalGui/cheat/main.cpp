@@ -3,6 +3,8 @@
 
 #include <thread>
 
+// add more features like custom keybinds, raping black children, fuck pride month
+
 Values values;
 
 int __stdcall wWinMain(
@@ -23,8 +25,13 @@ int __stdcall wWinMain(
 		gui::BeginRender();
 		gui::Render();
 		gui::EndRender();
+		if (GetAsyncKeyState('1') & 0x8000)
+			values.toggle = true;
 
-		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000 && GetAsyncKeyState(VK_RBUTTON) & 0x8000)
+		if (GetAsyncKeyState('2') & 0x8000)
+			values.toggle = false;
+
+		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000 && GetAsyncKeyState(VK_RBUTTON) & 0x8000 && values.toggle)
 			MoveMouse(values.recoil);
 	}
 

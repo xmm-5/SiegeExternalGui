@@ -257,7 +257,12 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove
 	);
 
-	ImGui::Text("Ctrl click to enter a custom value.");
+	if (values.toggle)
+		ImGui::Text("Recoil ON");
+
+	if (!values.toggle)
+		ImGui::Text("Recoil OFF");
+
 	ImGui::Spacing();
 	ImGui::Text("Recoil Slider");
 	ImGui::SliderInt("##RecoilSlider", &values.recoil, 0, 100); // ctrl click on slider to type

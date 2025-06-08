@@ -2,6 +2,7 @@
 
 struct Values
 {
+	bool toggle = true;
 	int recoil = 0;
 };
 
