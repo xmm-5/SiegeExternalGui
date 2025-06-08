@@ -37,7 +37,9 @@ long __stdcall WindowProcess(
 			return 0;
 	}break;
 
-	case WM_DESTROY: {
+	case WM_DESTROY: 
+	{
+		gui::exit = false;
 		PostQuitMessage(0);
 	}return 0;
 
@@ -233,7 +235,14 @@ void gui::EndRender() noexcept
 
 void gui::Render() noexcept
 {
-	ImGui::SetWindowPos({ 0, 0 });
+	struct vec2
+	{
+		float x, y;
+	};
+
+	vec2 windowPos = { 0.0f, 0.0f };
+
+	ImGui::SetWindowPos("Siege External", ImVec2(windowPos.x, windowPos.y));
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
 		"Siege External",
@@ -244,7 +253,29 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove
 	);
 
-	ImGui::Button("Test");
+	if (ImGui::BeginTabBar("Test"))
+	{
+		if (ImGui::BeginTabItem("Recoil"))
+		{
+			ImGui::Text("Recoil Tab");
+			ImGui::EndTabItem();
+		}
+
+		if (ImGui::BeginTabItem("Crosshair"))
+		{
+			ImGui::Text("Crosshair Tab");
+			ImGui::EndTabItem();
+		}
+
+		if (ImGui::BeginTabItem("Misc"))
+		{
+			ImGui::Text("Misc Tab");
+			ImGui::EndTabItem();
+		}
+
+		ImGui::EndTabBar();
+	}
+
 
 	ImGui::End();
 }
