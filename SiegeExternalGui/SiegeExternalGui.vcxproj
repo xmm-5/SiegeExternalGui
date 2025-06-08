@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cheat\gui.h" />
+    <ClInclude Include="cheat\recoil.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx9.h" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
     <ClCompile Include="cheat\main.cpp" />
+    <ClCompile Include="cheat\recoil.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -164,6 +166,9 @@
     <ClCompile Include="imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\ocr.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,11 @@
+#include "recoil.h"
+
 #include "gui.h"
 #include "imgui.h"
 #include "imgui_impl_dx9.h"
 #include "imgui_impl_win32.h"
+
+extern Values values;
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
 	HWND window,
@@ -242,10 +246,10 @@ void gui::Render() noexcept
 
 	vec2 windowPos = { 0.0f, 0.0f };
 
-	ImGui::SetWindowPos("Siege External", ImVec2(windowPos.x, windowPos.y));
+	ImGui::SetWindowPos("Global External", ImVec2(windowPos.x, windowPos.y));
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
-		"Siege External",
+		"Global External",
 		&exit,
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
@@ -253,29 +257,10 @@ void gui::Render() noexcept
 		ImGuiWindowFlags_NoMove
 	);
 
-	if (ImGui::BeginTabBar("Test"))
-	{
-		if (ImGui::BeginTabItem("Recoil"))
-		{
-			ImGui::Text("Recoil Tab");
-			ImGui::EndTabItem();
-		}
-
-		if (ImGui::BeginTabItem("Crosshair"))
-		{
-			ImGui::Text("Crosshair Tab");
-			ImGui::EndTabItem();
-		}
-
-		if (ImGui::BeginTabItem("Misc"))
-		{
-			ImGui::Text("Misc Tab");
-			ImGui::EndTabItem();
-		}
-
-		ImGui::EndTabBar();
-	}
-
+	ImGui::Text("Ctrl click to enter a custom value.");
+	ImGui::Spacing();
+	ImGui::Text("Recoil Slider");
+	ImGui::SliderInt("##RecoilSlider", &values.recoil, 0, 100); // ctrl click on slider to type
 
 	ImGui::End();
 }

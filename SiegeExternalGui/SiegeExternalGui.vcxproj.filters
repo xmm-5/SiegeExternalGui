@@ -42,6 +42,9 @@
     <ClInclude Include="cheat\gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheat\recoil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -71,5 +74,11 @@
     <ClCompile Include="cheat\gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cheat\recoil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\ocr.py" />
   </ItemGroup>
 </Project>
